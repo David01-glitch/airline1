@@ -18,8 +18,22 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 bg-ink-950/85 backdrop-blur supports-[backdrop-filter]:bg-ink-950/70">
-      <div className="section flex h-16 items-center justify-between">
+      <div className="section flex h-16 items-center justify-between gap-3">
         <Logo light />
+
+        {/* Compact call pill — always visible (mobile + desktop) */}
+        <a
+          href={SITE.phoneHref}
+          className="ml-auto inline-flex items-center gap-2 rounded-full bg-brand-600 px-3.5 py-2 text-xs font-bold text-white shadow-soft transition hover:bg-brand-700 sm:px-4 sm:text-sm md:hidden"
+        >
+          <span className="grid h-6 w-6 place-items-center rounded-full bg-white/15">
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+              <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
+            </svg>
+          </span>
+          <span className="whitespace-nowrap">{SITE.phone}</span>
+        </a>
+
         <nav className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="text-sm font-medium text-white/80 transition hover:text-white">
