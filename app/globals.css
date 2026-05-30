@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+  --bg: #f6f7fb;
+}
+
+html, body { background: var(--bg); color: #0b1024; }
+
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft transition hover:bg-brand-700;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 px-4 py-2 font-medium text-white/90 hover:bg-white/10;
+}
+.chip {
+  @apply inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold tracking-wider text-emerald-700;
+}
+.card {
+  @apply rounded-3xl bg-white shadow-soft;
+}
+.section { @apply mx-auto max-w-7xl px-5 sm:px-8; }
+
+/* hide scrollbar in autocomplete */
+.no-scrollbar::-webkit-scrollbar { display:none }
+.no-scrollbar { scrollbar-width:none }
