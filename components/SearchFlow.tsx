@@ -98,13 +98,15 @@ function BestFare({ onClose }: { onClose: () => void }) {
         We've found the <span className="font-bold text-brand-600">cheapest deal</span> for your
         route on
       </p>
-      <div className="mx-auto mt-3 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 shadow-sm">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://content.airhex.com/content/logos/airlines_AA_200_200_s.png"
-          alt="American Airlines"
-          className="h-8 w-8 rounded-md object-contain"
-        />
+      <div className="mx-auto mt-3 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 shadow-sm">
+        <span className="grid h-9 w-9 place-items-center rounded-md bg-white">
+          {/* Inline AA-style mark (red + blue) — no external load */}
+          <svg viewBox="0 0 64 64" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="64" rx="8" fill="#ffffff" />
+            <path d="M10 50 L28 14 L34 14 L24 34 L46 50 Z" fill="#0078D2" />
+            <path d="M22 50 L40 14 L46 14 L36 34 L54 50 Z" fill="#D6001C" />
+          </svg>
+        </span>
         <span className="text-base font-extrabold text-ink-900">American Airlines</span>
       </div>
       <p className="mt-3 text-xs text-slate-500">
