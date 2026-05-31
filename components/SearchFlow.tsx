@@ -95,9 +95,20 @@ function BestFare({ onClose }: { onClose: () => void }) {
         <span className="text-brand-600">Is Ready</span>
       </h3>
       <p className="mt-3 px-2 text-slate-600">
-        We've found a better flight option for your route, including{' '}
-        <span className="font-bold text-brand-600">exclusive fare access</span> not typically shown
-        on standard booking pages.
+        We've found the <span className="font-bold text-brand-600">cheapest deal</span> for your
+        route on
+      </p>
+      <div className="mx-auto mt-3 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 shadow-sm">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://content.airhex.com/content/logos/airlines_AA_200_200_s.png"
+          alt="American Airlines"
+          className="h-8 w-8 rounded-md object-contain"
+        />
+        <span className="text-base font-extrabold text-ink-900">American Airlines</span>
+      </div>
+      <p className="mt-3 text-xs text-slate-500">
+        Exclusive fare access — not shown on standard booking pages.
       </p>
       <a
         href={SITE.phoneHref}
