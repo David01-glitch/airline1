@@ -28,9 +28,27 @@ export default function AboutPage() {
         <ul>
           <li>Direct access to private and consolidator inventory not shown publicly.</li>
           <li>Human-only support — no chatbot loops, no offshore scripts.</li>
-          <li>Flat, transparent service fees disclosed before you confirm.</li>
-          <li>Secure checkout backed by PCI-DSS Level 1 infrastructure.</li>
+          <li>Flat, transparent service fees disclosed verbally before you authorise.</li>
+          <li>
+            Phone-only payments — we never collect card information through this website. Every
+            transaction is taken by a live agent on a recorded line via certified PCI-DSS
+            third-party processors.
+          </li>
         </ul>
+        <h2>Where we are</h2>
+        <p>
+          {SITE.legalName}
+          <br />
+          {SITE.address.line1}
+          <br />
+          {SITE.address.cityState}
+          <br />
+          {SITE.address.country}
+          <br />
+          Phone: <a className="text-brand-600 underline" href={SITE.phoneHref}>{SITE.phone}</a>
+          <br />
+          Email: <a className="text-brand-600 underline" href={SITE.emailHref}>{SITE.email}</a>
+        </p>
         <h2>Our promise</h2>
         <p>
           Every customer is treated like our only customer. If we cannot beat the public price you

@@ -1,7 +1,7 @@
 export const FEATURES = [
   {
     title: 'Instant Booking',
-    desc: 'Confirm your seat in seconds with our private fare desk and real-time availability.',
+    desc: 'A specialist locks in your itinerary on the same call — no waiting on web forms.',
     icon: 'bolt',
   },
   {
@@ -10,13 +10,13 @@ export const FEATURES = [
     icon: 'headset',
   },
   {
-    title: 'Easy Payments',
-    desc: 'Pay how you like — major cards, wallets, and bank transfers all secured end to end.',
+    title: 'Phone-Only Booking',
+    desc: 'We do not collect payments online. Every booking is processed by phone with a live agent.',
     icon: 'card',
   },
   {
-    title: '100% Safe',
-    desc: 'Bank-grade encryption, PCI-compliant checkout, and zero hidden charges. Ever.',
+    title: 'Zero Hidden Charges',
+    desc: 'The full price including any service fee is disclosed verbally before you authorise.',
     icon: 'shield',
   },
 ];
@@ -62,18 +62,18 @@ export const DESTINATIONS = [
 
 export const VALUE_PROPS = [
   {
-    title: 'Smart Search Filters',
-    desc: 'Drill into cabin class, layovers, baggage and time windows in a single sweep.',
+    title: 'Smart Route Search',
+    desc: 'Filter by cabin class, layovers, baggage and time windows in a single sweep.',
     icon: 'tune',
   },
   {
     title: 'Unbeatable Value',
-    desc: 'Private contract fares and last-seat inventory you won\'t find on public engines.',
+    desc: "Private contract fares and last-seat inventory you won't find on public engines.",
     icon: 'tag',
   },
   {
-    title: 'Secure Checkout',
-    desc: 'PCI-DSS Level 1 encryption, 3-D Secure, and instant fraud screening on every order.',
+    title: 'Booked Over Phone',
+    desc: 'All payments are taken on a recorded call by a specialist — never stored on our site.',
     icon: 'lock',
   },
 ];
@@ -140,7 +140,7 @@ export const BLOGS = [
   },
   {
     slug: 'name-correction-when-it-matters',
-    title: 'Misspelled Your Name on a Ticket? Here\'s What to Do',
+    title: "Misspelled Your Name on a Ticket? Here's What to Do",
     excerpt:
       'Most airlines allow corrections — but only inside narrow windows and policies. The exact playbook to fix it without rebooking.',
     img: 'https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?auto=format&fit=crop&w=1200&q=70',

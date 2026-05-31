@@ -20,7 +20,7 @@ export default function Page() {
         { q: 'How fast can a reservation be made?', a: 'Most reservations are confirmed within 5–10 minutes of you approving the itinerary.' },
         { q: 'Can I book for someone else?', a: 'Yes. We just need the traveller\'s full name as on their passport/ID and contact details.' },
         { q: 'Do you charge a service fee?', a: 'A flat service fee may apply on certain itineraries. It is always disclosed before payment.' },
-        { q: 'Which payment methods are accepted?', a: 'All major credit/debit cards, Apple Pay, Google Pay, and select bank transfers.' },
+        { q: 'Which payment methods are accepted?', a: 'All major credit/debit cards, Apple Pay, Google Pay, and select bank transfers — taken by a live agent over a recorded phone call. We do not collect payment information on this website.' },
       ]}
     />
   );
