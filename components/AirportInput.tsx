@@ -2,9 +2,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { searchAirports, AIRPORTS, Airport } from '@/lib/airports';
 
+// Popular suggestions when the field is empty — US airports only.
+// All other countries (India, UK, UAE, etc.) appear as soon as the user types.
 const POPULAR_CODES = [
-  'JFK', 'LAX', 'ORD', 'MIA', 'LHR', 'DXB', 'CDG', 'SIN',
-  'DEL', 'BOM', 'BLR', 'HYD', 'MAA', 'CCU', 'GOI', 'NRT',
+  'JFK', 'LGA', 'EWR', 'LAX', 'SFO', 'ORD', 'MIA', 'MCO',
+  'LAS', 'ATL', 'DFW', 'BOS', 'SEA', 'DEN', 'IAD', 'PHX',
 ];
 const POPULAR: Airport[] = POPULAR_CODES
   .map((c) => AIRPORTS.find((a) => a.code === c))
@@ -90,7 +92,7 @@ export default function AirportInput({
         <div className="no-scrollbar absolute left-0 right-0 z-30 mt-2 max-h-72 overflow-auto rounded-2xl border border-slate-200 bg-white shadow-soft">
           {showHeader && (
             <p className="px-4 pt-3 pb-1 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-              Popular airports
+              Popular US airports · type to search 120+ global airports
             </p>
           )}
           {hits.map((a) => (
