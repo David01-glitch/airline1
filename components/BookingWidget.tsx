@@ -126,12 +126,24 @@ export default function BookingWidget() {
               type="date"
               min={today}
               value={date}
+              onClick={(e) => {
+                const el = e.currentTarget as HTMLInputElement & { showPicker?: () => void };
+                if (typeof el.showPicker === 'function') {
+                  try { el.showPicker(); } catch { /* no-op */ }
+                }
+              }}
+              onFocus={(e) => {
+                const el = e.currentTarget as HTMLInputElement & { showPicker?: () => void };
+                if (typeof el.showPicker === 'function') {
+                  try { el.showPicker(); } catch { /* no-op */ }
+                }
+              }}
               onChange={(e) => {
                 setDate(e.target.value);
                 onDatePicked();
               }}
               onBlur={onDatePicked}
-              className="block w-full min-w-0 max-w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
+              className="block w-full min-w-0 max-w-full cursor-pointer appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
               style={{ WebkitAppearance: 'none' }}
             />
           </div>
