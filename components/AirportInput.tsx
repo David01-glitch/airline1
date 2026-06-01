@@ -2,7 +2,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { searchAirports, AIRPORTS, Airport } from '@/lib/airports';
 
-const POPULAR_CODES = ['JFK', 'LAX', 'ORD', 'MIA', 'LHR', 'DXB', 'CDG', 'SIN', 'DEL', 'NRT'];
+const POPULAR_CODES = [
+  'JFK', 'LAX', 'ORD', 'MIA', 'LHR', 'DXB', 'CDG', 'SIN',
+  'DEL', 'BOM', 'BLR', 'HYD', 'MAA', 'CCU', 'GOI', 'NRT',
+];
 const POPULAR: Airport[] = POPULAR_CODES
   .map((c) => AIRPORTS.find((a) => a.code === c))
   .filter(Boolean) as Airport[];

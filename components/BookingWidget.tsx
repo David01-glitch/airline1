@@ -13,12 +13,15 @@ export default function BookingWidget() {
   const [children, setChildren] = useState(0);
   const [searching, setSearching] = useState(false);
 
-  // Auto-flow signals & button ref for guided experience
+  // Auto-flow signals & refs for guided experience
   const [fromOpenSignal, setFromOpenSignal] = useState(0);
   const [toOpenSignal, setToOpenSignal] = useState(0);
+  const [dateTouched, setDateTouched] = useState(false);
   const submitRef = useRef<HTMLButtonElement>(null);
+  const dateRef = useRef<HTMLInputElement>(null);
   const triggeredFromRef = useRef(false);
   const triggeredToRef = useRef(false);
+  const triggeredDateFocusRef = useRef(false);
   const triggeredSubmitRef = useRef(false);
 
   // 1) After 2s on mount → open From dropdown
@@ -45,15 +48,39 @@ export default function BookingWidget() {
     return () => clearTimeout(t);
   }, [from, to]);
 
-  // 3) After To is set, wait 2s → auto-click Search
+  // 3) After To is set, wait 2s → focus the date input so user picks a date
   useEffect(() => {
-    if (!from || !to || triggeredSubmitRef.current) return;
+    if (!from || !to || triggeredDateFocusRef.current) return;
+    const t = setTimeout(() => {
+      triggeredDateFocusRef.current = true;
+      const el = dateRef.current;
+      if (el) {
+        el.focus({ preventScroll: false });
+        el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        // Try to pop the native date picker on supported browsers (Chrome/Edge)
+        // @ts-ignore
+        if (typeof el.showPicker === 'function') {
+          try {
+            // @ts-ignore
+            el.showPicker();
+          } catch {
+            // ignore — some browsers throw if not user-initiated
+          }
+        }
+      }
+    }, 2000);
+    return () => clearTimeout(t);
+  }, [from, to]);
+
+  // 4) After From + To set AND user has touched date → wait 2s → auto-submit
+  useEffect(() => {
+    if (!from || !to || !dateTouched || triggeredSubmitRef.current) return;
     const t = setTimeout(() => {
       triggeredSubmitRef.current = true;
       submitRef.current?.click();
     }, 2000);
     return () => clearTimeout(t);
-  }, [from, to]);
+  }, [from, to, dateTouched, date]);
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,19 +121,24 @@ export default function BookingWidget() {
             />
           </div>
           <div className="md:col-span-2">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-ink-700/70">
+            <label className="mb-1 block text-xs font-bold uppercase tracking-wider text-ink-900">
               Departure
             </label>
             <input
+              ref={dateRef}
               type="date"
               min={today}
               value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-semibold text-ink-900 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
+              onChange={(e) => {
+                setDate(e.target.value);
+                setDateTouched(true);
+              }}
+              onBlur={() => setDateTouched(true)}
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
             />
           </div>
           <div className="md:col-span-2">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-ink-700/70">
+            <label className="mb-1 block text-xs font-bold uppercase tracking-wider text-ink-900">
               Travellers
             </label>
             <TravellerPicker
