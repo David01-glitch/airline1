@@ -13,14 +13,18 @@ export default function BookingWidget() {
   const [children, setChildren] = useState(0);
   const [searching, setSearching] = useState(false);
 
-  // Auto-flow: open From on mount; open To immediately after From is selected.
-  // Date, Travellers and Search are 100% user-driven.
+  // Guided auto-flow signals
   const [fromOpenSignal, setFromOpenSignal] = useState(0);
   const [toOpenSignal, setToOpenSignal] = useState(0);
+  const [travellersOpenSignal, setTravellersOpenSignal] = useState(0);
+  const dateRef = useRef<HTMLInputElement>(null);
+
   const triggeredFromRef = useRef(false);
   const triggeredToRef = useRef(false);
+  const triggeredDateRef = useRef(false);
+  const triggeredTravellersRef = useRef(false);
 
-  // 1) On mount → open From dropdown (small delay to let layout settle)
+  // 1) On mount → open From dropdown
   useEffect(() => {
     if (triggeredFromRef.current) return;
     const t = setTimeout(() => {
@@ -32,7 +36,7 @@ export default function BookingWidget() {
     return () => clearTimeout(t);
   }, [from]);
 
-  // 2) As soon as From is set → open To dropdown
+  // 2) After From → open To dropdown immediately
   useEffect(() => {
     if (!from || triggeredToRef.current) return;
     const t = setTimeout(() => {
@@ -43,6 +47,37 @@ export default function BookingWidget() {
     }, 150);
     return () => clearTimeout(t);
   }, [from, to]);
+
+  // 3) After To → open Date picker
+  useEffect(() => {
+    if (!from || !to || triggeredDateRef.current) return;
+    const t = setTimeout(() => {
+      triggeredDateRef.current = true;
+      const el = dateRef.current;
+      if (el) {
+        el.focus({ preventScroll: false });
+        el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        // Chrome / Edge / modern Safari support showPicker
+        // @ts-ignore
+        if (typeof el.showPicker === 'function') {
+          try {
+            // @ts-ignore
+            el.showPicker();
+          } catch {
+            /* ignore — must be user-initiated on some browsers */
+          }
+        }
+      }
+    }, 200);
+    return () => clearTimeout(t);
+  }, [from, to]);
+
+  // 4) After Date is picked → open Travellers picker
+  const onDatePicked = () => {
+    if (triggeredTravellersRef.current) return;
+    triggeredTravellersRef.current = true;
+    setTimeout(() => setTravellersOpenSignal((n) => n + 1), 150);
+  };
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,19 +117,25 @@ export default function BookingWidget() {
               openSignal={toOpenSignal}
             />
           </div>
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 min-w-0">
             <label className="mb-1 block text-xs font-bold uppercase tracking-wider text-ink-900">
               Departure
             </label>
             <input
+              ref={dateRef}
               type="date"
               min={today}
               value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
+              onChange={(e) => {
+                setDate(e.target.value);
+                onDatePicked();
+              }}
+              onBlur={onDatePicked}
+              className="block w-full min-w-0 max-w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
+              style={{ WebkitAppearance: 'none' }}
             />
           </div>
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 min-w-0">
             <label className="mb-1 block text-xs font-bold uppercase tracking-wider text-ink-900">
               Travellers
             </label>
@@ -103,6 +144,7 @@ export default function BookingWidget() {
               children={children}
               setAdults={setAdults}
               setChildren={setChildren}
+              openSignal={travellersOpenSignal}
             />
           </div>
         </div>
@@ -134,24 +176,42 @@ function TravellerPicker({
   children,
   setAdults,
   setChildren,
+  openSignal,
 }: {
   adults: number;
   children: number;
   setAdults: (n: number) => void;
   setChildren: (n: number) => void;
+  openSignal?: number;
 }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (openSignal === undefined || openSignal === 0) return;
+    setOpen(true);
+    ref.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [openSignal]);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
   return (
-    <div className="relative">
+    <div ref={ref} className="relative">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-base font-semibold text-ink-900 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
+        className="block w-full min-w-0 max-w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
       >
         {adults + children} {adults + children === 1 ? 'Traveller' : 'Travellers'}
       </button>
       {open && (
-        <div className="absolute right-0 z-30 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-soft">
+        <div className="absolute right-0 z-30 mt-2 w-72 max-w-[calc(100vw-2rem)] rounded-2xl border border-slate-200 bg-white p-4 shadow-soft">
           <Row label="Adults" sub="12+ yrs" value={adults} setValue={(n) => setAdults(Math.max(1, n))} />
           <Row label="Children" sub="2–11 yrs" value={children} setValue={(n) => setChildren(Math.max(0, n))} />
           <button
