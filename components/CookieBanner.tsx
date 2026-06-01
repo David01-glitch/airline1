@@ -24,7 +24,7 @@ export default function CookieBanner() {
 
   if (!show) return null;
   return (
-    <div className="fixed inset-x-3 bottom-3 z-50 sm:inset-x-auto sm:bottom-6 sm:right-6 sm:max-w-md">
+    <div className="fixed inset-x-3 bottom-20 z-50 sm:inset-x-auto sm:bottom-24 sm:right-6 sm:max-w-md">
       <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
         <p className="text-sm font-bold text-ink-900">We use cookies</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
