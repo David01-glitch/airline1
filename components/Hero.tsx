@@ -29,12 +29,24 @@ export default function Hero() {
           <p className="mx-auto mt-5 max-w-2xl text-lg text-white/75">{SITE.subTagline}</p>
         </div>
         <BookingWidget />
-        <p className="mt-6 text-center text-sm text-white/60">
-          Talk to a specialist 24/7 ·{' '}
-          <a href={SITE.phoneHref} className="font-semibold text-white underline-offset-4 hover:underline">
-            {SITE.phone}
+        <div className="mt-8 flex justify-center">
+          <a
+            href={SITE.phoneHref}
+            className="group inline-flex items-center gap-3 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-5 py-2.5 backdrop-blur transition hover:border-emerald-400/60 hover:bg-emerald-500/15"
+          >
+            <span className="relative grid place-items-center">
+              <span className="absolute h-3.5 w-3.5 animate-ping rounded-full bg-emerald-400/70" />
+              <span className="relative h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.9)]" />
+            </span>
+            <span className="text-sm font-semibold text-emerald-100 sm:text-base">
+              Talk to a specialist 24/7
+            </span>
+            <span className="hidden h-4 w-px bg-white/20 sm:block" />
+            <span className="text-base font-extrabold tracking-wide text-white sm:text-lg">
+              {SITE.phone}
+            </span>
           </a>
-        </p>
+        </div>
       </div>
     </section>
   );
