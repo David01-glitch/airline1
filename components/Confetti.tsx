@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+// (useState retained for the tick counter that drives the continuous loop)
 
 const COLORS = ['#5b67f5', '#fb923c', '#10b981', '#f59e0b', '#ec4899', '#3b82f6', '#facc15', '#a855f7'];
 
@@ -78,22 +79,24 @@ function makeBursts(): Burst[] {
   return bursts;
 }
 
-export default function Confetti() {
-  const [confetti, setConfetti] = useState<Particle[]>([]);
-  const [bursts, setBursts] = useState<Burst[]>([]);
-  const [show, setShow] = useState(true);
+export default function Confetti({ active = true }: { active?: boolean }) {
+  const [tick, setTick] = useState(0);
 
+  // Re-fire bursts every ~1.6s while active. Animations overlap slightly so it looks continuous.
   useEffect(() => {
-    setConfetti(makeConfetti());
-    setBursts(makeBursts());
-    const t = setTimeout(() => setShow(false), 4200);
-    return () => clearTimeout(t);
-  }, []);
+    if (!active) return;
+    const id = setInterval(() => setTick((t) => t + 1), 1600);
+    return () => clearInterval(id);
+  }, [active]);
 
-  if (!show) return null;
+  if (!active) return null;
+
+  // Particle batches are regenerated each tick (fresh CSS animations).
+  const confetti = makeConfetti();
+  const bursts = makeBursts();
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[80] overflow-hidden">
+    <div key={tick} className="pointer-events-none fixed inset-0 z-[80] overflow-hidden">
       {/* ── Popper emojis at bottom corners ── */}
       <div className="absolute bottom-2 left-2 text-5xl animate-bounce">🎆</div>
       <div className="absolute bottom-2 right-2 text-5xl animate-bounce">🎇</div>

@@ -27,14 +27,16 @@ export default function SearchFlow({
     };
   }, []);
 
+  const [fireworks, setFireworks] = useState(true);
+
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-ink-950/85 p-4 backdrop-blur-sm">
       {stage === 'scanning' ? (
         <Scanning from={from} to={to} />
       ) : (
         <>
-          <Confetti />
-          <BestFare onClose={onClose} />
+          <Confetti active={fireworks} />
+          <BestFare onClose={onClose} onCall={() => setFireworks(false)} />
         </>
       )}
     </div>
@@ -77,7 +79,7 @@ function Scanning({ from, to }: { from: Airport | null; to: Airport | null }) {
   );
 }
 
-function BestFare({ onClose }: { onClose: () => void }) {
+function BestFare({ onClose, onCall }: { onClose: () => void; onCall: () => void }) {
   return (
     <div className="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100 p-8 text-center shadow-soft">
       <button
@@ -125,6 +127,7 @@ function BestFare({ onClose }: { onClose: () => void }) {
       </p>
       <a
         href={SITE.phoneHref}
+        onClick={onCall}
         className="mt-6 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft transition hover:brightness-110"
       >
         <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 text-white">
