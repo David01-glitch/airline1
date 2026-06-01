@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AirportInput from './AirportInput';
 import { Airport } from '@/lib/airports';
 import SearchFlow from './SearchFlow';
@@ -12,6 +12,48 @@ export default function BookingWidget() {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [searching, setSearching] = useState(false);
+
+  // Auto-flow signals & button ref for guided experience
+  const [fromOpenSignal, setFromOpenSignal] = useState(0);
+  const [toOpenSignal, setToOpenSignal] = useState(0);
+  const submitRef = useRef<HTMLButtonElement>(null);
+  const triggeredFromRef = useRef(false);
+  const triggeredToRef = useRef(false);
+  const triggeredSubmitRef = useRef(false);
+
+  // 1) After 2s on mount → open From dropdown
+  useEffect(() => {
+    if (triggeredFromRef.current) return;
+    const t = setTimeout(() => {
+      if (!from) {
+        triggeredFromRef.current = true;
+        setFromOpenSignal((n) => n + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(t);
+  }, [from]);
+
+  // 2) After From is set, wait 2s → open To dropdown
+  useEffect(() => {
+    if (!from || triggeredToRef.current) return;
+    const t = setTimeout(() => {
+      if (!to) {
+        triggeredToRef.current = true;
+        setToOpenSignal((n) => n + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(t);
+  }, [from, to]);
+
+  // 3) After To is set, wait 2s → auto-click Search
+  useEffect(() => {
+    if (!from || !to || triggeredSubmitRef.current) return;
+    const t = setTimeout(() => {
+      triggeredSubmitRef.current = true;
+      submitRef.current?.click();
+    }, 2000);
+    return () => clearTimeout(t);
+  }, [from, to]);
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,10 +76,22 @@ export default function BookingWidget() {
 
         <div className="grid gap-4 md:grid-cols-12">
           <div className="md:col-span-4">
-            <AirportInput label="From" placeholder="City or airport" value={from} onChange={setFrom} />
+            <AirportInput
+              label="From"
+              placeholder="City or airport"
+              value={from}
+              onChange={setFrom}
+              openSignal={fromOpenSignal}
+            />
           </div>
           <div className="md:col-span-4">
-            <AirportInput label="To" placeholder="City or airport" value={to} onChange={setTo} />
+            <AirportInput
+              label="To"
+              placeholder="City or airport"
+              value={to}
+              onChange={setTo}
+              openSignal={toOpenSignal}
+            />
           </div>
           <div className="md:col-span-2">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-ink-700/70">
@@ -65,6 +119,7 @@ export default function BookingWidget() {
         </div>
 
         <button
+          ref={submitRef}
           type="submit"
           className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-600 px-6 py-4 text-base font-bold text-white shadow-soft transition hover:bg-brand-700 md:w-auto md:px-10"
         >

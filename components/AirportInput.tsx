@@ -12,16 +12,20 @@ export default function AirportInput({
   placeholder,
   value,
   onChange,
+  openSignal,
 }: {
   label: string;
   placeholder: string;
   value: Airport | null;
   onChange: (a: Airport | null) => void;
+  /** When this number changes, the dropdown auto-opens (used for guided flow). */
+  openSignal?: number;
 }) {
   const [q, setQ] = useState(value ? `${value.city} (${value.code})` : '');
   const [open, setOpen] = useState(false);
   const [hits, setHits] = useState<Airport[]>([]);
   const ref = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -34,6 +38,14 @@ export default function AirportInput({
   useEffect(() => {
     setHits(q.trim() ? searchAirports(q) : POPULAR);
   }, [q]);
+
+  // Auto-open when parent toggles openSignal
+  useEffect(() => {
+    if (openSignal === undefined || openSignal === 0) return;
+    setOpen(true);
+    inputRef.current?.focus({ preventScroll: false });
+    inputRef.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [openSignal]);
 
   const pick = (a: Airport) => {
     onChange(a);
@@ -59,6 +71,7 @@ export default function AirportInput({
         </svg>
       </button>
       <input
+        ref={inputRef}
         value={q}
         onChange={(e) => {
           setQ(e.target.value);
