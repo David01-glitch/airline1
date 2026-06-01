@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Airport } from '@/lib/airports';
 import { SITE } from '@/lib/site';
+import Confetti from './Confetti';
 
 export default function SearchFlow({
   from,
@@ -28,7 +29,14 @@ export default function SearchFlow({
 
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-ink-950/85 p-4 backdrop-blur-sm">
-      {stage === 'scanning' ? <Scanning from={from} to={to} /> : <BestFare onClose={onClose} />}
+      {stage === 'scanning' ? (
+        <Scanning from={from} to={to} />
+      ) : (
+        <>
+          <Confetti />
+          <BestFare onClose={onClose} />
+        </>
+      )}
     </div>
   );
 }
@@ -83,6 +91,9 @@ function BestFare({ onClose }: { onClose: () => void }) {
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
         FARE MATCH AVAILABLE
       </span>
+      <p className="mt-3 text-2xl font-extrabold tracking-tight text-emerald-600">
+        🎉 Congratulations!
+      </p>
       <div className="mx-auto mt-5 grid h-20 w-20 place-items-center rounded-2xl bg-emerald-100 ring-8 ring-emerald-50">
         <svg viewBox="0 0 24 24" className="h-10 w-10 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2.5">
           <circle cx="12" cy="12" r="9" />
