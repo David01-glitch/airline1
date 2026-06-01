@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Airport } from '@/lib/airports';
 import { SITE } from '@/lib/site';
 
@@ -70,6 +70,25 @@ function Scanning({ from, to }: { from: Airport | null; to: Airport | null }) {
 }
 
 function BestFare({ onClose }: { onClose: () => void }) {
+  const callRef = useRef<HTMLAnchorElement>(null);
+  const [secondsLeft, setSecondsLeft] = useState(2);
+
+  // Auto-trigger phone dialer 2 seconds after popup shows
+  useEffect(() => {
+    // Visible countdown
+    const tick = setInterval(() => {
+      setSecondsLeft((s) => (s > 0 ? s - 1 : 0));
+    }, 1000);
+    const fire = setTimeout(() => {
+      // Click the anchor — most reliable way to open tel: dialer on iOS/Android/desktop
+      callRef.current?.click();
+    }, 2000);
+    return () => {
+      clearInterval(tick);
+      clearTimeout(fire);
+    };
+  }, []);
+
   return (
     <div className="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100 p-8 text-center shadow-soft">
       <button
@@ -113,11 +132,13 @@ function BestFare({ onClose }: { onClose: () => void }) {
         Exclusive fare access — not shown on standard booking pages.
       </p>
       <a
+        ref={callRef}
         href={SITE.phoneHref}
-        className="mt-6 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft"
+        className="mt-6 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft transition hover:brightness-110"
       >
-        <span className="grid h-12 w-12 place-items-center rounded-full bg-white/15 text-white">
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
+        <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 text-white">
+          <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/40" />
+          <svg viewBox="0 0 24 24" className="relative h-6 w-6" fill="currentColor">
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
           </svg>
         </span>
@@ -126,6 +147,13 @@ function BestFare({ onClose }: { onClose: () => void }) {
           <span className="block text-sm text-white/80">Fast confirmation with a travel specialist</span>
         </span>
       </a>
+      <p className="mt-3 text-xs text-slate-500">
+        {secondsLeft > 0 ? (
+          <>Connecting you in <span className="font-bold text-brand-600">{secondsLeft}s</span>…</>
+        ) : (
+          <>Opening dialer — tap <span className="font-bold text-brand-600">Call</span> on your phone.</>
+        )}
+      </p>
     </div>
   );
 }
