@@ -13,18 +13,14 @@ export default function BookingWidget() {
   const [children, setChildren] = useState(0);
   const [searching, setSearching] = useState(false);
 
-  // Auto-flow signals & refs for guided experience
+  // Auto-flow: open From on mount; open To immediately after From is selected.
+  // Date, Travellers and Search are 100% user-driven.
   const [fromOpenSignal, setFromOpenSignal] = useState(0);
   const [toOpenSignal, setToOpenSignal] = useState(0);
-  const [dateTouched, setDateTouched] = useState(false);
-  const submitRef = useRef<HTMLButtonElement>(null);
-  const dateRef = useRef<HTMLInputElement>(null);
   const triggeredFromRef = useRef(false);
   const triggeredToRef = useRef(false);
-  const triggeredDateFocusRef = useRef(false);
-  const triggeredSubmitRef = useRef(false);
 
-  // 1) After 2s on mount → open From dropdown
+  // 1) On mount → open From dropdown (small delay to let layout settle)
   useEffect(() => {
     if (triggeredFromRef.current) return;
     const t = setTimeout(() => {
@@ -32,11 +28,11 @@ export default function BookingWidget() {
         triggeredFromRef.current = true;
         setFromOpenSignal((n) => n + 1);
       }
-    }, 2000);
+    }, 400);
     return () => clearTimeout(t);
   }, [from]);
 
-  // 2) After From is set, wait 2s → open To dropdown
+  // 2) As soon as From is set → open To dropdown
   useEffect(() => {
     if (!from || triggeredToRef.current) return;
     const t = setTimeout(() => {
@@ -44,43 +40,9 @@ export default function BookingWidget() {
         triggeredToRef.current = true;
         setToOpenSignal((n) => n + 1);
       }
-    }, 2000);
+    }, 150);
     return () => clearTimeout(t);
   }, [from, to]);
-
-  // 3) After To is set, wait 2s → focus the date input so user picks a date
-  useEffect(() => {
-    if (!from || !to || triggeredDateFocusRef.current) return;
-    const t = setTimeout(() => {
-      triggeredDateFocusRef.current = true;
-      const el = dateRef.current;
-      if (el) {
-        el.focus({ preventScroll: false });
-        el.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        // Try to pop the native date picker on supported browsers (Chrome/Edge)
-        // @ts-ignore
-        if (typeof el.showPicker === 'function') {
-          try {
-            // @ts-ignore
-            el.showPicker();
-          } catch {
-            // ignore — some browsers throw if not user-initiated
-          }
-        }
-      }
-    }, 2000);
-    return () => clearTimeout(t);
-  }, [from, to]);
-
-  // 4) After From + To set AND user has touched date → wait 2s → auto-submit
-  useEffect(() => {
-    if (!from || !to || !dateTouched || triggeredSubmitRef.current) return;
-    const t = setTimeout(() => {
-      triggeredSubmitRef.current = true;
-      submitRef.current?.click();
-    }, 2000);
-    return () => clearTimeout(t);
-  }, [from, to, dateTouched, date]);
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -125,15 +87,10 @@ export default function BookingWidget() {
               Departure
             </label>
             <input
-              ref={dateRef}
               type="date"
               min={today}
               value={date}
-              onChange={(e) => {
-                setDate(e.target.value);
-                setDateTouched(true);
-              }}
-              onBlur={() => setDateTouched(true)}
+              onChange={(e) => setDate(e.target.value)}
               className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-base font-extrabold text-ink-950 outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
             />
           </div>
@@ -151,7 +108,6 @@ export default function BookingWidget() {
         </div>
 
         <button
-          ref={submitRef}
           type="submit"
           className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-600 px-6 py-4 text-base font-bold text-white shadow-soft transition hover:bg-brand-700 md:w-auto md:px-10"
         >

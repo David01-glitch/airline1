@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Airport } from '@/lib/airports';
 import { SITE } from '@/lib/site';
 
@@ -70,25 +70,6 @@ function Scanning({ from, to }: { from: Airport | null; to: Airport | null }) {
 }
 
 function BestFare({ onClose }: { onClose: () => void }) {
-  const callRef = useRef<HTMLAnchorElement>(null);
-  const [secondsLeft, setSecondsLeft] = useState(2);
-
-  // Auto-trigger phone dialer 2 seconds after popup shows
-  useEffect(() => {
-    // Visible countdown
-    const tick = setInterval(() => {
-      setSecondsLeft((s) => (s > 0 ? s - 1 : 0));
-    }, 1000);
-    const fire = setTimeout(() => {
-      // Click the anchor — most reliable way to open tel: dialer on iOS/Android/desktop
-      callRef.current?.click();
-    }, 2000);
-    return () => {
-      clearInterval(tick);
-      clearTimeout(fire);
-    };
-  }, []);
-
   return (
     <div className="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100 p-8 text-center shadow-soft">
       <button
@@ -132,7 +113,6 @@ function BestFare({ onClose }: { onClose: () => void }) {
         Exclusive fare access — not shown on standard booking pages.
       </p>
       <a
-        ref={callRef}
         href={SITE.phoneHref}
         className="mt-6 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft transition hover:brightness-110"
       >
@@ -148,11 +128,7 @@ function BestFare({ onClose }: { onClose: () => void }) {
         </span>
       </a>
       <p className="mt-3 text-xs text-slate-500">
-        {secondsLeft > 0 ? (
-          <>Connecting you in <span className="font-bold text-brand-600">{secondsLeft}s</span>…</>
-        ) : (
-          <>Opening dialer — tap <span className="font-bold text-brand-600">Call</span> on your phone.</>
-        )}
+        Tap the button above to call our travel specialist.
       </p>
     </div>
   );
