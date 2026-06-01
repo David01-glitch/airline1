@@ -4,10 +4,10 @@ export default function StickyCallBar() {
   return (
     <>
       {/* Spacer so content doesn't sit underneath the fixed bar */}
-      <div aria-hidden className="h-20 sm:h-16" />
+      <div aria-hidden className="h-24 sm:h-20" />
       <a
         href={SITE.phoneHref}
-        className="fixed inset-x-0 bottom-0 z-[60] flex items-center justify-center gap-3 bg-gradient-to-r from-brand-600 to-brand-700 px-4 py-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] text-white shadow-[0_-10px_30px_-12px_rgba(0,0,0,0.5)]"
+        className="fixed inset-x-0 bottom-0 z-[60] flex items-center justify-center gap-3 bg-gradient-to-r from-brand-600 to-brand-700 px-4 pt-3 pb-[max(env(safe-area-inset-bottom),1.5rem)] text-white shadow-[0_-10px_30px_-12px_rgba(0,0,0,0.5)]"
         aria-label={`Call ${SITE.phone}`}
       >
         <span className="relative grid h-10 w-10 place-items-center rounded-full bg-white/15">

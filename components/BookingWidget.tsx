@@ -67,7 +67,7 @@ export default function BookingWidget() {
         className="relative mx-auto mt-10 w-full max-w-5xl rounded-3xl bg-white p-5 shadow-soft sm:p-7"
       >
         <div className="mb-5 flex items-center gap-2">
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-700">
+          <span className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-700">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
             One Way
           </span>

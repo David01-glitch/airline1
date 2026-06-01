@@ -57,7 +57,7 @@ export default function AirportInput({
 
   return (
     <div ref={ref} className="relative">
-      <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-ink-700/70">
+      <label className="mb-1 block text-xs font-bold uppercase tracking-wider text-ink-900">
         {label}
       </label>
       <button
@@ -81,7 +81,7 @@ export default function AirportInput({
         onFocus={() => setOpen(true)}
         onClick={() => setOpen(true)}
         placeholder={placeholder}
-        className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 pr-10 text-base font-semibold text-ink-900 outline-none placeholder:font-normal placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
+        className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 pr-10 text-base font-extrabold text-ink-950 outline-none placeholder:font-normal placeholder:text-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15"
       />
       {open && hits.length > 0 && (
         <div className="no-scrollbar absolute left-0 right-0 z-30 mt-2 max-h-72 overflow-auto rounded-2xl border border-slate-200 bg-white shadow-soft">
