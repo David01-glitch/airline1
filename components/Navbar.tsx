@@ -7,10 +7,9 @@ import { SITE } from '@/lib/site';
 
 const links = [
   { href: '/about', label: 'About' },
-  { href: '/flight', label: 'Flight' },
-  { href: '/destination', label: 'Destination' },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/destination', label: 'Destinations' },
   { href: '/blog', label: 'Blog' },
-  { href: '/privacy', label: 'Privacy' },
   { href: '/contact', label: 'Contact' },
 ];
 

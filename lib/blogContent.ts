@@ -2,16 +2,16 @@ export const BLOG_BODY: Record<string, string[]> = {
   'best-time-to-book-international-flights': [
     "If you've ever spent an evening refreshing a fare search hoping the price will drop on a Tuesday at 3am, you've been chasing a myth that started in the early 2000s.",
     "Airline revenue management has changed. Fares now respond to demand signals in near real time — search volume, booking velocity, day-of-week patterns, even the device you're searching on.",
-    "Across two years of bookings, our data shows international round-trips bottom out 5–8 weeks before departure. Domestic US flights bottom out 3–6 weeks out. Inside two weeks, prices rise sharply on every route we tracked.",
-    "Three concrete moves that beat any 'best time' hack: (1) Search incognito to avoid personalised pricing. (2) Compare nearby airports — JFK vs EWR can swing 25%. (3) If the route is competitive, set a fare alert and pull the trigger at the first dip below your target.",
-    "And when nothing public looks reasonable, call us. Private fares often beat search-engine prices by 15–40% on long-haul routes.",
+    "Across two years of our team's booking data, international round-trips tend to bottom out 5–8 weeks before departure. Domestic US flights tend to bottom out 3–6 weeks out. Inside two weeks, prices rise sharply on most routes we track.",
+    "Three concrete moves that beat any 'best time' hack: (1) Search incognito to avoid personalised pricing. (2) Compare nearby airports — JFK vs EWR can swing 25%. (3) If the route is competitive, set a fare alert and book at the first dip below your target.",
+    "And when the public price looks high, calling a travel agent is worth a few minutes. We may have access to consolidator inventory the public engines don't show.",
   ],
-  'how-private-fares-work': [
-    "Private fares are negotiated rates between airlines and select travel agencies. They never appear on public engines like Google Flights or Expedia.",
-    "Why do airlines do it? Volume guarantees, off-peak inventory clearance, distribution agreements, and corporate contracts. The agency commits to selling N tickets a quarter; in exchange they get fares 10–40% below the public price.",
-    "Consolidator fares are a sister category — airlines unload long-haul international seats in bulk and consolidators retail them at deep discounts. These are the rates most American travellers see only when they call a specialist.",
-    "The catch: private and consolidator fares come with their own fare rules. Sometimes more flexible than public fares; sometimes less. A good travel agent walks you through the rules before you pay.",
-    "If your trip is more than $500 and more than 3,000 miles, it almost always pays to get a second quote from a specialist before booking online.",
+  'how-travel-agents-work': [
+    "Online travel engines are fine for simple round-trips. They struggle the moment your itinerary gets complicated.",
+    "When does calling an agent actually beat the website? Multi-city trips. Long-haul economy on international carriers. Award-ticket bookings. Last-minute travel. Anything where the fare rules matter.",
+    "Travel agents have direct access to consolidator inventory — bulk-purchased seats that airlines unload through agencies rather than public sites. That doesn't always mean a lower price, but it widens the option set.",
+    "The other quiet advantage is post-booking support. If your flight is cancelled mid-itinerary, the agent calls the airline on your behalf — no two-hour airline hold queue from a hotel room in another country.",
+    "It's not the right channel for everyone. If you're booking a $200 domestic round-trip with no complications, the website is faster and free. For anything else, a five-minute call can save hours and dollars later.",
   ],
   'long-haul-comfort-checklist': [
     "Long-haul flights are a marathon, not a sprint. A few small choices in the 24 hours before departure decide whether you arrive ready to function or wrecked.",
@@ -25,7 +25,7 @@ export const BLOG_BODY: Record<string, string[]> = {
     "United States (DOT rules): if the airline cancels, you're entitled to a full cash refund (not just a voucher), even on non-refundable tickets. Many carriers will quietly default to a voucher unless you specifically ask for cash.",
     "European Union (EC 261): for flights departing the EU or operated by an EU carrier, cancellations within 14 days of departure trigger compensation of €250–€600 per passenger, plus a refund or rebooking. Weather and air-traffic control delays are excluded.",
     "UK & Canada: similar consumer-friendly frameworks (UK261 mirrors EC261; APPR in Canada).",
-    "Documentation matters. Save your cancellation email, boarding pass, and any out-of-pocket receipts. When in doubt, call us — we file the claim on your behalf and chase the refund.",
+    "Documentation matters. Save your cancellation email, boarding pass, and any out-of-pocket receipts. If you booked through us, we can file the claim on your behalf.",
   ],
   'name-correction-when-it-matters': [
     "A single wrong letter on a ticket can deny boarding. But almost every airline allows minor corrections — the trick is knowing the window and the right form.",
@@ -34,13 +34,13 @@ export const BLOG_BODY: Record<string, string[]> = {
     "What never works: replacing one passenger with another person. That's a name change, not a correction, and major airlines do not allow it (ticket would have to be cancelled and rebooked).",
     "Move fast. After check-in opens, the system locks. Always call before the 24-hour pre-flight window.",
   ],
-  'underrated-destinations-2026': [
+  'underrated-destinations-2025': [
     "Tired of crowds and inflated euro prices? Seven destinations our travellers are quietly returning from with great photos and reasonable bills.",
-    "Albania — Saranda and the Riviera coast deliver Greek-island scenery at one-third the price. Direct flights from major European hubs.",
+    "Albania — Saranda and the Riviera coast deliver Greek-island scenery at a fraction of the price. Direct flights from major European hubs.",
     "Georgia (the country) — Tbilisi's wine culture, Caucasus hiking, and one of the most generous food cultures we've found anywhere.",
-    "Oman — Muscat is the calm, sophisticated cousin to Dubai. Wadi swimming, desert camps, and zero crowds.",
+    "Oman — Muscat is the calm, sophisticated cousin to Dubai. Wadi swimming, desert camps, and far fewer crowds.",
     "Kyrgyzstan — alpine lakes, yurts, and horseback culture. For travellers who think they've seen 'mountains' until they see the Tien Shan.",
-    "Colombia (Cartagena & coffee region) — direct US flights, dollar-friendly prices, world-class coffee tours, and the most underrated beaches in Latin America.",
+    "Colombia (Cartagena & coffee region) — direct US flights, dollar-friendly prices, world-class coffee tours, and underrated beaches in Latin America.",
     "Slovenia — Ljubljana is a fairytale capital; Lake Bled needs no introduction. A two-hour drive gets you to alps, Mediterranean, or vineyards.",
     "Taiwan — night markets, hot springs, and the easiest food scene in Asia for first-timers. English signage is good and trains run on time.",
   ],

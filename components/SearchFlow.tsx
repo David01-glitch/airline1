@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { Airport } from '@/lib/airports';
 import { SITE } from '@/lib/site';
-import Confetti from './Confetti';
 
 export default function SearchFlow({
   from,
@@ -16,7 +15,7 @@ export default function SearchFlow({
   const [stage, setStage] = useState<'scanning' | 'ready'>('scanning');
 
   useEffect(() => {
-    const t = setTimeout(() => setStage('ready'), 1800);
+    const t = setTimeout(() => setStage('ready'), 1600);
     return () => clearTimeout(t);
   }, []);
 
@@ -27,17 +26,12 @@ export default function SearchFlow({
     };
   }, []);
 
-  const [fireworks, setFireworks] = useState(true);
-
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-ink-950/85 p-4 backdrop-blur-sm">
       {stage === 'scanning' ? (
         <Scanning from={from} to={to} />
       ) : (
-        <>
-          <Confetti active={fireworks} />
-          <BestFare onClose={onClose} onCall={() => setFireworks(false)} />
-        </>
+        <BestFare onClose={onClose} />
       )}
     </div>
   );
@@ -67,9 +61,8 @@ function Scanning({ from, to }: { from: Airport | null; to: Airport | null }) {
           </div>
         </div>
       </div>
-      <h3 className="mt-7 text-2xl font-extrabold text-ink-900">Scanning Sky Routes</h3>
-      <p className="mt-2 text-slate-500">Comparing private fares across</p>
-      <p className="font-bold text-brand-600">400+ Global Airlines…</p>
+      <h3 className="mt-7 text-2xl font-extrabold text-ink-900">Checking Available Options</h3>
+      <p className="mt-2 text-slate-500">Looking up routes for your dates…</p>
       {from && to && (
         <p className="mt-4 text-xs text-slate-400">
           {from.city} ({from.code}) → {to.city} ({to.code})
@@ -79,71 +72,60 @@ function Scanning({ from, to }: { from: Airport | null; to: Airport | null }) {
   );
 }
 
-function BestFare({ onClose, onCall }: { onClose: () => void; onCall: () => void }) {
+function BestFare({ onClose }: { onClose: () => void }) {
   return (
-    <div className="relative w-full max-w-md rounded-3xl bg-gradient-to-b from-slate-50 to-slate-100 p-8 text-center shadow-soft">
+    <div className="relative w-full max-w-md rounded-3xl bg-white p-7 text-center shadow-soft">
       <button
         onClick={onClose}
         aria-label="close"
-        className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-slate-200/70 text-slate-600 transition hover:bg-slate-300"
+        className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200"
       >
         ✕
       </button>
-      <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold tracking-wider text-emerald-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        FARE MATCH AVAILABLE
-      </span>
-      <p className="mt-3 text-2xl font-extrabold tracking-tight text-emerald-600">
-        🎉 Congratulations!
-      </p>
-      <div className="mx-auto mt-5 grid h-20 w-20 place-items-center rounded-2xl bg-emerald-100 ring-8 ring-emerald-50">
-        <svg viewBox="0 0 24 24" className="h-10 w-10 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M8 12.5l2.5 2.5L16 9" strokeLinecap="round" strokeLinejoin="round" />
+
+      <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-brand-50">
+        <svg viewBox="0 0 24 24" className="h-8 w-8 text-brand-600" fill="currentColor">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
         </svg>
       </div>
-      <h3 className="mt-6 font-display text-4xl font-extrabold leading-tight text-ink-900">
-        Your Best Fare
-        <br />
-        <span className="text-brand-600">Is Ready</span>
+
+      <h3 className="mt-5 font-display text-3xl font-extrabold leading-tight text-ink-900">
+        Speak with a travel specialist
       </h3>
-      <p className="mt-3 px-2 text-slate-600">
-        We've found the <span className="font-bold text-brand-600">cheapest deal</span> for your
-        route on
+      <p className="mt-3 text-slate-600">
+        Our agent will review available options for your route and confirm the live price with you on
+        the phone before any booking.
       </p>
-      <div className="mx-auto mt-3 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 shadow-sm">
-        <span className="grid h-9 w-9 place-items-center rounded-md bg-white">
-          {/* Inline AA-style mark (red + blue) — no external load */}
-          <svg viewBox="0 0 64 64" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" rx="8" fill="#ffffff" />
-            <path d="M10 50 L28 14 L34 14 L24 34 L46 50 Z" fill="#0078D2" />
-            <path d="M22 50 L40 14 L46 14 L36 34 L54 50 Z" fill="#D6001C" />
-          </svg>
-        </span>
-        <span className="text-base font-extrabold text-ink-900">American Airlines</span>
+
+      {/* Third-party / not-an-airline disclosure right above the call button */}
+      <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-left text-xs text-amber-900">
+        <strong>Please note:</strong> {SITE.name} is an independent travel agency, not an airline.
+        Calls are answered by our specialists and may be recorded for quality assurance. A service
+        fee (typically <strong>$25–$50</strong>) may apply and will be disclosed verbally before
+        payment.
       </div>
-      <p className="mt-3 text-xs text-slate-500">
-        Exclusive fare access — not shown on standard booking pages.
-      </p>
+
       <a
         href={SITE.phoneHref}
-        onClick={onCall}
-        className="mt-6 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft transition hover:brightness-110"
+        className="mt-5 flex w-full items-center gap-4 rounded-2xl bg-brand-600 p-4 text-left shadow-soft transition hover:bg-brand-700"
       >
-        <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 text-white">
-          <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/40" />
-          <svg viewBox="0 0 24 24" className="relative h-6 w-6" fill="currentColor">
+        <span className="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white">
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
           </svg>
         </span>
         <span className="flex-1 text-white">
-          <span className="block text-xl font-extrabold">Call {SITE.phone}</span>
-          <span className="block text-sm text-white/80">Fast confirmation with a travel specialist</span>
+          <span className="block text-lg font-extrabold">Call {SITE.phone}</span>
+          <span className="block text-xs text-white/80">24×7 · live agent</span>
         </span>
       </a>
-      <p className="mt-3 text-xs text-slate-500">
-        Tap the button above to call our travel specialist.
-      </p>
+
+      <button
+        onClick={onClose}
+        className="mt-3 text-xs font-semibold text-slate-500 underline-offset-4 hover:text-slate-700 hover:underline"
+      >
+        Or close and continue browsing
+      </button>
     </div>
   );
 }

@@ -6,6 +6,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://aerotickethub.com';
 const staticPaths = [
   '',
   '/about',
+  '/how-it-works',
   '/flight',
   '/destination',
   '/blog',
@@ -20,6 +21,8 @@ const staticPaths = [
   '/disclaimer',
   '/disclosure',
   '/payment-policy',
+  '/sample-fare-disclosure',
+  '/accessibility',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

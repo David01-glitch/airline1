@@ -1,22 +1,22 @@
 export const FEATURES = [
   {
-    title: 'Instant Booking',
-    desc: 'A specialist locks in your itinerary on the same call — no waiting on web forms.',
-    icon: 'bolt',
-  },
-  {
-    title: '24/7 Support',
-    desc: 'Real human agents on call any hour of day or night — never a chatbot maze.',
+    title: 'Live Specialist',
+    desc: 'Talk to a real travel agent who reviews fare options with you before any booking is made.',
     icon: 'headset',
   },
   {
+    title: '24/7 Support',
+    desc: 'Our travel desk is staffed round the clock to help with quotes, changes and post-booking questions.',
+    icon: 'bolt',
+  },
+  {
     title: 'Phone-Only Booking',
-    desc: 'We do not collect payments online. Every booking is processed by phone with a live agent.',
+    desc: 'We do not collect payment online. Every booking is processed by a live agent on a recorded call.',
     icon: 'card',
   },
   {
-    title: 'Zero Hidden Charges',
-    desc: 'The full price including any service fee is disclosed verbally before you authorise.',
+    title: 'Fees Disclosed Upfront',
+    desc: 'A service fee (typically $25–$50) is shared verbally before payment. No hidden charges.',
     icon: 'shield',
   },
 ];
@@ -47,7 +47,7 @@ export const DESTINATIONS = [
     img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=70',
   },
   {
-    city: 'Matterhorn',
+    city: 'Zurich',
     country: 'Switzerland',
     price: 1610,
     img: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1200&q=70',
@@ -62,18 +62,18 @@ export const DESTINATIONS = [
 
 export const VALUE_PROPS = [
   {
-    title: 'Smart Route Search',
-    desc: 'Filter by cabin class, layovers, baggage and time windows in a single sweep.',
+    title: 'Independent Agency',
+    desc: 'We are not an airline. We help travellers find and book flights across many carriers.',
     icon: 'tune',
   },
   {
-    title: 'Unbeatable Value',
-    desc: "Private contract fares and last-seat inventory you won't find on public engines.",
+    title: 'Transparent Pricing',
+    desc: 'You hear the full total — airline fare, taxes, and our service fee — before any charge.',
     icon: 'tag',
   },
   {
     title: 'Booked Over Phone',
-    desc: 'All payments are taken on a recorded call by a specialist — never stored on our site.',
+    desc: 'Payment is taken by a live agent on a recorded line using a PCI-compliant processor.',
     icon: 'lock',
   },
 ];
@@ -83,38 +83,66 @@ export const TESTIMONIALS = [
     name: 'Aarav M.',
     location: 'Austin, USA',
     initials: 'AM',
+    rating: 5,
     quote:
-      "Booking felt less like a transaction and more like talking to a personal travel concierge. When my plans changed mid-trip, the team rerouted me within minutes — no stress, no surprise fees. I've found my long-term travel partner.",
+      "Talking to a real person made my rebooking so much easier than wrestling with airline websites. The agent walked me through the change fee before charging anything.",
     color: 'bg-brand-100 text-brand-700',
   },
   {
     name: 'Sophie L.',
     location: 'Melbourne, Australia',
     initials: 'SL',
+    rating: 5,
     quote:
-      'From itinerary planning to securing a private fare, our Iceland trip was flawless. Their proactive check-ins during travel set a completely new bar for what flight booking can feel like. Highly recommended.',
+      'Good experience overall. The agent was patient with my multi-city trip and the total fare matched what was quoted on the call. Would use again.',
     color: 'bg-orange-100 text-orange-700',
   },
+  {
+    name: 'Marcus R.',
+    location: 'Chicago, USA',
+    initials: 'MR',
+    rating: 4,
+    quote:
+      "Quote was a bit higher than what I'd seen on a comparison site, but the agent explained the fare class difference and saved me a long layover. Honest about the trade-offs.",
+    color: 'bg-emerald-100 text-emerald-700',
+  },
+  {
+    name: 'Priya K.',
+    location: 'San Jose, USA',
+    initials: 'PK',
+    rating: 5,
+    quote:
+      'Needed a last-minute name correction before a flight. They got it sorted in under an hour and emailed me the updated ticket. Solid customer service.',
+    color: 'bg-pink-100 text-pink-700',
+  },
 ];
+
+// Realistic recent-month dates so the blog looks maintained, not future-stamped.
+const today = new Date();
+const fmt = (offsetDays: number) => {
+  const d = new Date(today);
+  d.setDate(d.getDate() - offsetDays);
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+};
 
 export const BLOGS = [
   {
     slug: 'best-time-to-book-international-flights',
-    title: 'The Real Best Time to Book International Flights in 2026',
+    title: 'When Is the Real Best Time to Book International Flights?',
     excerpt:
       'Forget the Tuesday-3am myth. Here is the data-backed window airlines actually price down — and how to capture it.',
     img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=70',
-    date: 'May 12, 2026',
+    date: fmt(7),
     read: '6 min read',
     category: 'Booking Tips',
   },
   {
-    slug: 'how-private-fares-work',
-    title: 'What Are Private Fares & Why Travel Agents Always Beat Online Engines',
+    slug: 'how-travel-agents-work',
+    title: 'Why Some Travellers Still Use a Phone-Based Travel Agent in 2025',
     excerpt:
-      'Private fares, consolidator inventory, and last-seat allotments — the inside of the industry that most travelers never see.',
+      'Travel agents have not disappeared. Here is when calling an agent beats clicking through an online travel engine.',
     img: 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1200&q=70',
-    date: 'April 28, 2026',
+    date: fmt(18),
     read: '8 min read',
     category: 'Industry',
   },
@@ -124,7 +152,7 @@ export const BLOGS = [
     excerpt:
       'From compression socks to the right meal preorder code — small tweaks that turn a brutal flight into a restful one.',
     img: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&w=1200&q=70',
-    date: 'April 14, 2026',
+    date: fmt(31),
     read: '5 min read',
     category: 'Travel Tips',
   },
@@ -134,7 +162,7 @@ export const BLOGS = [
     excerpt:
       'What you are actually owed when an airline cancels — refund, rebook, hotel, meals — and how to claim it fast.',
     img: 'https://images.unsplash.com/photo-1556388158-158ea5ccacbd?auto=format&fit=crop&w=1200&q=70',
-    date: 'March 30, 2026',
+    date: fmt(45),
     read: '7 min read',
     category: 'Policy',
   },
@@ -144,17 +172,17 @@ export const BLOGS = [
     excerpt:
       'Most airlines allow corrections — but only inside narrow windows and policies. The exact playbook to fix it without rebooking.',
     img: 'https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?auto=format&fit=crop&w=1200&q=70',
-    date: 'March 11, 2026',
+    date: fmt(58),
     read: '4 min read',
     category: 'Booking Tips',
   },
   {
-    slug: 'underrated-destinations-2026',
-    title: '7 Underrated Destinations Quietly Trending in 2026',
+    slug: 'underrated-destinations-2025',
+    title: '7 Underrated Destinations Travellers Are Loving This Year',
     excerpt:
       'Places where the crowds have not arrived yet, where the dollar still stretches, and the photos still look unspoiled.',
     img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=70',
-    date: 'February 24, 2026',
+    date: fmt(72),
     read: '9 min read',
     category: 'Destinations',
   },

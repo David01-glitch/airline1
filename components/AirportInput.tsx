@@ -44,12 +44,10 @@ export default function AirportInput({
     setHits(q.trim() ? searchAirports(q) : POPULAR);
   }, [q]);
 
-  // Auto-open when parent toggles openSignal
+  // Note: parent-driven auto-open removed for compliance. The field only opens on user focus/click.
   useEffect(() => {
     if (openSignal === undefined || openSignal === 0) return;
-    setOpen(true);
-    inputRef.current?.focus({ preventScroll: false });
-    inputRef.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    // intentionally no-op now — kept for prop compatibility
   }, [openSignal]);
 
   const pick = (a: Airport) => {
