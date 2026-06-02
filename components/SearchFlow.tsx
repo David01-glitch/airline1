@@ -97,18 +97,18 @@ function BestFare({ onClose }: { onClose: () => void }) {
             <span className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-emerald-300/80" />
             <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-300" />
           </span>
-          LIVE PHONE QUOTE READY
+          LOW PHONE FARES AVAILABLE
         </span>
 
         <h3 className="relative mt-4 font-display text-[28px] font-extrabold leading-[1.1] sm:text-3xl">
-          A better quote may be<br />
+          Lower fares for your route<br />
           <span className="bg-gradient-to-r from-amber-200 via-emerald-200 to-white bg-clip-text text-transparent">
-            waiting on the phone.
+            may be waiting on the phone.
           </span>
         </h3>
         <p className="relative mt-3 text-sm leading-relaxed text-white/90">
-          Phone-based fares are not always shown online. Talk to a live specialist now — the quote
-          is <strong>free, personalised</strong>, and takes about a minute.
+          Phone-only low fares are not always shown online. Talk to a live specialist now — the
+          quote is <strong>free, personalised</strong>, and takes about a minute.
         </p>
       </div>
 
@@ -118,13 +118,13 @@ function BestFare({ onClose }: { onClose: () => void }) {
           <li className="flex items-start gap-2">
             <CheckDot />
             <span>
-              <strong>Today&apos;s quote</strong> for your exact dates · ready in ~60 seconds
+              <strong>Low phone fares</strong> for your exact dates · ready in ~60 seconds
             </span>
           </li>
           <li className="flex items-start gap-2">
             <CheckDot />
             <span>
-              Phone-only fares may apply · <strong>quote can be lower than online</strong>
+              Quote <strong>can be lower than online prices</strong> on many routes
             </span>
           </li>
           <li className="flex items-start gap-2">

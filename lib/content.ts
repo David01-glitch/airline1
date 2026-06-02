@@ -1,7 +1,7 @@
 export const FEATURES = [
   {
-    title: 'Live Specialist',
-    desc: 'Talk to a real travel agent who reviews fare options with you before any booking is made.',
+    title: 'Low-Fare Specialists',
+    desc: 'Our agents check low-fare phone options across many carriers and walk you through every detail before booking.',
     icon: 'headset',
   },
   {
