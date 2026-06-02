@@ -83,75 +83,127 @@ function BestFare({ onClose }: { onClose: () => void }) {
         ✕
       </button>
 
-      {/* Bright gradient top bar */}
-      <div className="bg-gradient-to-br from-brand-600 via-brand-700 to-brand-600 px-6 pt-7 pb-6 text-white">
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-bold tracking-widest text-emerald-200 backdrop-blur">
+      {/* Vivid gradient header with subtle confetti dots */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-fuchsia-500 px-6 pt-7 pb-7 text-white">
+        {/* Background spark dots */}
+        <div className="pointer-events-none absolute inset-0 opacity-30">
+          <Dot t="6%" l="8%" /><Dot t="14%" l="86%" /><Dot t="38%" l="14%" />
+          <Dot t="62%" l="80%" /><Dot t="82%" l="22%" /><Dot t="74%" l="58%" />
+          <Dot t="22%" l="48%" /><Dot t="50%" l="92%" />
+        </div>
+
+        <span className="relative inline-flex items-center gap-2 rounded-full bg-emerald-400/20 px-3 py-1 text-[11px] font-bold tracking-widest text-emerald-100 ring-1 ring-emerald-300/40 backdrop-blur">
           <span className="relative grid place-items-center">
             <span className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-emerald-300/80" />
             <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-300" />
           </span>
-          AGENT AVAILABLE NOW
+          LIVE PHONE QUOTE READY
         </span>
-        <h3 className="mt-4 font-display text-3xl font-extrabold leading-tight">
-          Good news —<br />
-          <span className="bg-gradient-to-r from-emerald-200 to-white bg-clip-text text-transparent">
-            a specialist is ready for you
+
+        <h3 className="relative mt-4 font-display text-[28px] font-extrabold leading-[1.1] sm:text-3xl">
+          A better quote may be<br />
+          <span className="bg-gradient-to-r from-amber-200 via-emerald-200 to-white bg-clip-text text-transparent">
+            waiting on the phone.
           </span>
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-white/85">
-          Skip the endless tabs. A live travel agent will check available options for your route,
-          walk you through the fare rules, and find the right itinerary — fast, honest, and over a
-          single phone call.
+        <p className="relative mt-3 text-sm leading-relaxed text-white/90">
+          Phone-based fares are not always shown online. Talk to a live specialist now — the quote
+          is <strong>free, personalised</strong>, and takes about a minute.
         </p>
       </div>
 
       <div className="px-6 pb-7 pt-5">
-        {/* Bullet list of what the call gives them */}
-        <ul className="space-y-2 text-left text-sm text-slate-700">
+        {/* Bullet list — energetic but compliant */}
+        <ul className="space-y-2.5 text-left text-sm text-slate-700">
           <li className="flex items-start gap-2">
             <CheckDot />
-            Personalised quote for <strong>your exact dates and route</strong>
+            <span>
+              <strong>Today&apos;s quote</strong> for your exact dates · ready in ~60 seconds
+            </span>
           </li>
           <li className="flex items-start gap-2">
             <CheckDot />
-            <strong>No service fee</strong> — you pay the live airline price quoted on the call
+            <span>
+              Phone-only fares may apply · <strong>quote can be lower than online</strong>
+            </span>
           </li>
           <li className="flex items-start gap-2">
             <CheckDot />
-            Real human · <strong>average pickup under 30 seconds</strong>
+            <span>
+              <strong>Zero service fee</strong> · you pay only the airline price we quote
+            </span>
+          </li>
+          <li className="flex items-start gap-2">
+            <CheckDot />
+            <span>
+              Real human · <strong>average pickup under 30 seconds</strong>
+            </span>
           </li>
         </ul>
 
+        {/* Big animated call CTA */}
         <a
           href={SITE.phoneHref}
-          className="mt-5 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft transition hover:brightness-110"
+          className="group mt-5 flex w-full items-center gap-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-4 text-left shadow-soft transition hover:brightness-110"
         >
-          <span className="relative grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white">
+          <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white/15 text-white">
             <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/40" />
             <svg viewBox="0 0 24 24" className="relative h-5 w-5" fill="currentColor">
               <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
             </svg>
           </span>
           <span className="flex-1 text-white">
-            <span className="block text-lg font-extrabold">Call {SITE.phone}</span>
-            <span className="block text-xs text-white/85">Tap to talk to your specialist now</span>
+            <span className="block text-[10px] font-bold uppercase tracking-widest text-emerald-200">
+              Tap to call · ringing now
+            </span>
+            <span className="block text-lg font-extrabold tracking-tight">{SITE.phone}</span>
           </span>
+          <svg viewBox="0 0 24 24" className="h-5 w-5 text-white/70 transition group-hover:translate-x-1 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </a>
 
+        {/* Trust-row */}
+        <div className="mt-4 flex items-center justify-center gap-4 text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+          <span className="flex items-center gap-1">
+            <svg viewBox="0 0 24 24" className="h-3 w-3 text-emerald-500" fill="currentColor">
+              <path d="M9 16.2L4.8 12 3.4 13.4 9 19l12-12-1.4-1.4z" />
+            </svg>
+            24×7 Live Agents
+          </span>
+          <span className="h-3 w-px bg-slate-300" />
+          <span className="flex items-center gap-1">
+            <svg viewBox="0 0 24 24" className="h-3 w-3 text-emerald-500" fill="currentColor">
+              <path d="M9 16.2L4.8 12 3.4 13.4 9 19l12-12-1.4-1.4z" />
+            </svg>
+            Secure Phone Booking
+          </span>
+        </div>
+
         {/* Compliance footnote — small but present */}
-        <p className="mt-4 text-[11px] leading-relaxed text-slate-500">
+        <p className="mt-4 text-[11px] leading-relaxed text-slate-400">
           {SITE.name} is an independent travel agency, not an airline. Calls may be recorded for
-          quality assurance.
+          quality assurance. Quotes depend on live airline inventory.
         </p>
 
         <button
           onClick={onClose}
-          className="mt-3 text-xs font-semibold text-slate-500 underline-offset-4 hover:text-slate-700 hover:underline"
+          className="mt-2 text-xs font-semibold text-slate-400 underline-offset-4 hover:text-slate-600 hover:underline"
         >
-          Or close and continue browsing
+          No thanks, keep browsing
         </button>
       </div>
     </div>
+  );
+}
+
+function Dot({ t, l }: { t: string; l: string }) {
+  return (
+    <span
+      aria-hidden
+      className="absolute h-1 w-1 rounded-full bg-white"
+      style={{ top: t, left: l }}
+    />
   );
 }
 
