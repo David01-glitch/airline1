@@ -12,9 +12,28 @@ export default function BookingWidget() {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [searching, setSearching] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
+    // Validate required fields before showing the quote popup
+    if (!from) {
+      setError('Please select a departure city.');
+      return;
+    }
+    if (!to) {
+      setError('Please select a destination city.');
+      return;
+    }
+    if (from.code === to.code) {
+      setError('Origin and destination must be different.');
+      return;
+    }
+    if (!date) {
+      setError('Please pick a departure date.');
+      return;
+    }
+    setError(null);
     setSearching(true);
   };
 
@@ -38,7 +57,10 @@ export default function BookingWidget() {
               label="From"
               placeholder="City or airport"
               value={from}
-              onChange={setFrom}
+              onChange={(a) => {
+                setFrom(a);
+                if (a) setError(null);
+              }}
             />
           </div>
           <div className="md:col-span-4">
@@ -46,7 +68,10 @@ export default function BookingWidget() {
               label="To"
               placeholder="City or airport"
               value={to}
-              onChange={setTo}
+              onChange={(a) => {
+                setTo(a);
+                if (a) setError(null);
+              }}
             />
           </div>
           <div className="md:col-span-2 min-w-0">
@@ -80,6 +105,18 @@ export default function BookingWidget() {
             />
           </div>
         </div>
+
+        {error && (
+          <div
+            role="alert"
+            className="mt-5 flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+          >
+            <svg viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0" fill="currentColor">
+              <path d="M12 2L1 21h22L12 2zm0 6l8.5 14.5h-17L12 8zm-1 4v4h2v-4h-2zm0 5v2h2v-2h-2z" />
+            </svg>
+            <span className="font-semibold">{error}</span>
+          </div>
+        )}
 
         <button
           type="submit"
