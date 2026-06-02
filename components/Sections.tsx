@@ -48,7 +48,8 @@ export function About() {
           <p className="mt-5 text-slate-600">
             {SITE.name} is an independent third-party travel agency based in New York. We help
             travellers plan and book flights with a live specialist on the phone, so every fare,
-            fare rule and service fee is reviewed verbally before any payment is taken.
+            fare rule is reviewed verbally before any payment is taken — and we do not add a
+            service fee.
           </p>
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {[

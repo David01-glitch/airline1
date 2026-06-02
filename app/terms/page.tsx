@@ -32,7 +32,7 @@ export default function TermsPage() {
           and to enable travellers to contact our specialists. All bookings, fare quotes and
           payments are completed exclusively over the phone with a live agent on a recorded line
           after you have reviewed and verbally approved (a) the complete itinerary, (b) the total
-          cost including any service fee, and (c) the airline's fare rules.
+          cost, and (c) the airline's fare rules.
         </p>
 
         <h2>3. Eligibility</h2>
@@ -46,25 +46,24 @@ export default function TermsPage() {
           Fares displayed on the Site are sample prices and are not guaranteed. The actual price of
           any itinerary will be confirmed verbally by our agent before payment. Prices may change
           at any time prior to booking due to airline inventory, currency fluctuations or fare-rule
-          changes. Any service fee charged by {SITE.name} will always be disclosed before payment
-          and is non-refundable once the ticket is issued.
+          changes. {SITE.name} does not add any service fee; you pay only the live airline fare
+          and applicable airline taxes.
         </p>
 
         <h2>5. Bookings, changes & cancellations</h2>
         <p>
           Each ticket is governed by the fare rules of the operating airline. Changes,
-          cancellations, refunds, name corrections and date alterations are subject to those rules
-          plus any service fee disclosed by our agent. Some fares are non-refundable and
-          non-changeable; you will be advised before confirming.
+          cancellations, refunds, name corrections and date alterations are subject to those
+          airline rules. Some fares are non-refundable and non-changeable; you will be advised
+          before confirming.
         </p>
 
         <h2>6. Refunds</h2>
         <p>
           Refund eligibility, amount and timing are determined by the airline. We process refund
-          requests with the airline on your behalf at no additional charge for airline-initiated
-          cancellations. For voluntary cancellations, the airline's fare-rule penalty applies in
-          addition to any {SITE.name} service fee. Refunds are returned to the original method of
-          payment within the timeframe set by the airline (typically 7–90 business days).
+          requests with the airline on your behalf at no additional charge. Refunds are returned to
+          the original method of payment within the timeframe set by the airline (typically 7–90
+          business days).
         </p>
 
         <h2>7. Travel documents</h2>
@@ -78,8 +77,8 @@ export default function TermsPage() {
         <h2>8. Limitation of liability</h2>
         <p>
           To the maximum extent permitted by law, {SITE.name}'s aggregate liability arising out of
-          or related to your use of the Site or Services shall not exceed the service fee paid to
-          {SITE.name} for the relevant booking. We are not liable for: airline delays,
+          or related to your use of the Site or Services shall not exceed US $100. We are not
+          liable for: airline delays,
           cancellations, schedule changes, denied boarding, lost baggage, missed connections, force
           majeure events, or any indirect, consequential, special or punitive damages.
         </p>

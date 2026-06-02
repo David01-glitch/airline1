@@ -38,7 +38,7 @@ export default function Page() {
         <ul>
           <li>You search a route on our website and tap the call button.</li>
           <li>An agent answers within 30 seconds and pulls the live fare options.</li>
-          <li>The agent explains itinerary, total cost, service fee (if any), and fare rules.</li>
+          <li>The agent explains itinerary, total cost, and fare rules.</li>
           <li>You authorise the charge verbally on the recorded line.</li>
           <li>
             The agent enters your card details directly into the airline's or processor's secure
@@ -55,11 +55,11 @@ export default function Page() {
           Authorize.net, Worldpay).
         </p>
 
-        <h2>4. Service fee</h2>
+        <h2>4. No service fee</h2>
         <p>
-          On some itineraries we charge a flat service fee for the agent's time, fare-rule
-          research and post-booking support. The fee is disclosed verbally before payment and
-          itemised on your receipt. The fee is non-refundable once the ticket is issued.
+          We do not add a service fee on top of the airline fare. The price you hear on the call is
+          the airline's live fare plus applicable taxes — nothing extra from us. Our revenue comes
+          from airline and consolidator commissions, not from charging you.
         </p>
 
         <h2>5. Receipts and confirmations</h2>

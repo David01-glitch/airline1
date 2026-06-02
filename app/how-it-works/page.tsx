@@ -17,7 +17,7 @@ const STEPS = [
   },
   {
     title: 'You review the quote',
-    desc: 'The agent reads out the itinerary, total cost (fare + taxes + our service fee) and fare rules. You confirm verbally before any charge.',
+    desc: 'The agent reads out the itinerary, total cost (live airline fare + applicable taxes) and fare rules. You confirm verbally before any charge.',
     icon: 'check',
   },
   {

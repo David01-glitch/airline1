@@ -18,7 +18,7 @@ export default function Page() {
       ]}
       faqs={[
         { q: 'How long does a refund take?', a: 'Most airlines process refunds within 7–20 business days; some carriers up to 90 days.' },
-        { q: 'Is the service fee refundable?', a: 'Airline-imposed fares and taxes are refunded per fare rules. Our service fee, if any, is non-refundable.' },
+        { q: 'How are refunds calculated?', a: 'Airline-imposed fares and taxes are refunded according to the airline\'s fare rules. We do not add a service fee, so there is nothing extra for us to deduct.' },
         { q: 'What if my flight was cancelled by the airline?', a: 'You\'re entitled to a full refund. We file and chase the claim on your behalf at no charge.' },
         { q: 'Can I get a partial refund?', a: 'Yes, for unused legs of a multi-segment ticket — we calculate the refundable value for you.' },
       ]}

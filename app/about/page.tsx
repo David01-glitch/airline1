@@ -28,7 +28,7 @@ export default function AboutPage() {
         <ul>
           <li>Direct access to private and consolidator inventory not shown publicly.</li>
           <li>Human-only support — no chatbot loops, no offshore scripts.</li>
-          <li>Flat, transparent service fees disclosed verbally before you authorise.</li>
+          <li>No service fee — you pay only the live airline fare we quote on the call.</li>
           <li>
             Phone-only payments — we never collect card information through this website. Every
             transaction is taken by a live agent on a recorded line via certified PCI-DSS

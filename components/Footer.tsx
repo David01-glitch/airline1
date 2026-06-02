@@ -125,10 +125,9 @@ export default function Footer() {
             endorsed by, or in any way officially connected with any airline. All airline names,
             trademarks and logos referenced are the property of their respective owners and are
             used for identification purposes only. Prices shown on this site are illustrative
-            sample fares; live fares and any service fee (typically <strong>$25–$50 per ticket</strong>)
-            are confirmed verbally by a specialist before any payment. Calls to our travel desk may
-            be recorded for quality assurance and training. We do not process payments on this
-            website.
+            sample fares; live fares are confirmed verbally by a specialist before any payment.
+            Calls to our travel desk may be recorded for quality assurance and training. We do not
+            process payments on this website.
           </p>
           <p className="mt-3 leading-relaxed">
             <strong className="text-white/80">Seller of Travel:</strong>{' '}

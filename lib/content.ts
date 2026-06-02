@@ -15,8 +15,8 @@ export const FEATURES = [
     icon: 'card',
   },
   {
-    title: 'Fees Disclosed Upfront',
-    desc: 'A service fee (typically $25–$50) is shared verbally before payment. No hidden charges.',
+    title: 'No Service Fees',
+    desc: 'We do not add a service fee. You pay the airline fare quoted on the call — nothing extra from us.',
     icon: 'shield',
   },
 ];
@@ -68,7 +68,7 @@ export const VALUE_PROPS = [
   },
   {
     title: 'Transparent Pricing',
-    desc: 'You hear the full total — airline fare, taxes, and our service fee — before any charge.',
+    desc: 'You hear the full total — airline fare plus applicable taxes — before any charge. We never add a service fee.',
     icon: 'tag',
   },
   {

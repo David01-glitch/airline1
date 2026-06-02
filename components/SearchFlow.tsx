@@ -100,9 +100,7 @@ function BestFare({ onClose }: { onClose: () => void }) {
       {/* Third-party / not-an-airline disclosure right above the call button */}
       <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-3 text-left text-xs text-amber-900">
         <strong>Please note:</strong> {SITE.name} is an independent travel agency, not an airline.
-        Calls are answered by our specialists and may be recorded for quality assurance. A service
-        fee (typically <strong>$25–$50</strong>) may apply and will be disclosed verbally before
-        payment.
+        Calls are answered by our specialists and may be recorded for quality assurance.
       </div>
 
       <a

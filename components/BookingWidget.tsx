@@ -145,7 +145,7 @@ export default function BookingWidget() {
 }
 
 const SITE_DISCLAIMER =
-  'Indicative search only. Live fares, availability and any service fee are confirmed by a specialist on the phone before booking. AeroTicketHub is an independent travel agency and is not affiliated with any airline.';
+  'Indicative search only. Live fares and availability are confirmed by a specialist on the phone before booking. AeroTicketHub is an independent travel agency and is not affiliated with any airline. We do not charge a service fee.';
 
 function TravellerPicker({
   adults,

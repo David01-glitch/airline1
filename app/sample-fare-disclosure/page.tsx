@@ -27,9 +27,9 @@ export default function Page() {
         <h2>What is included (and not) in a sample fare</h2>
         <ul>
           <li>Sample fares typically reflect the base airline fare plus standard taxes and fees.</li>
-          <li>They do <strong>not</strong> include our service fee (typically $25–$50 per ticket).</li>
           <li>They do not reflect seasonal surcharges, fuel adjustments, or last-minute price changes.</li>
           <li>They may not reflect baggage, seat selection or upgrade charges.</li>
+          <li>{`We do not add any service fee on top — the live airline price quoted on the call is what you pay.`}</li>
         </ul>
 
         <h2>How the live price is confirmed</h2>
@@ -40,7 +40,7 @@ export default function Page() {
         </p>
         <ul>
           <li>Pull the actual live fare from the airline or our consolidator for your dates.</li>
-          <li>Add any applicable taxes, fees and our service fee.</li>
+          <li>Add any applicable airline taxes and fees.</li>
           <li>Tell you the total amount that will be charged before any payment is taken.</li>
           <li>Read out the fare rules — change fees, refundability, baggage — for your approval.</li>
         </ul>

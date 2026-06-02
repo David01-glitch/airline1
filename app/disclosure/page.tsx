@@ -23,10 +23,10 @@ export default function Page() {
 
         <h2>How we earn revenue</h2>
         <p>
-          {SITE.name} earns revenue through (a) commissions paid by airlines and consolidators on
-          successful bookings; (b) a flat service fee disclosed verbally to the traveller before
-          payment and shown on the final receipt. We do not charge any fee for searching, quoting
-          or advising — only when a booking is confirmed.
+          {SITE.name} earns revenue solely through commissions paid by airlines and consolidators
+          on successful bookings. <strong>We do not charge the traveller a service fee.</strong>{' '}
+          The price quoted by our agent is the live airline fare plus applicable airline taxes —
+          nothing extra is added by us. Searching, quoting and advising is always free.
         </p>
 
         <h2>No payment processing on this website</h2>
