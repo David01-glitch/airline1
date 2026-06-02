@@ -1,7 +1,7 @@
 export const FEATURES = [
   {
-    title: 'Low-Fare Specialists',
-    desc: 'Our agents check low-fare phone options across many carriers and walk you through every detail before booking.',
+    title: 'Affordable Airfare Experts',
+    desc: 'Our travel experts check affordable phone fares across many carriers and walk you through every detail before booking.',
     icon: 'headset',
   },
   {

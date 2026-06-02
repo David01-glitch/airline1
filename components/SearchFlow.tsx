@@ -97,18 +97,18 @@ function BestFare({ onClose }: { onClose: () => void }) {
             <span className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-emerald-300/80" />
             <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-300" />
           </span>
-          LOW PHONE FARES AVAILABLE
+          AFFORDABLE AIRFARE · EXPERT ON THE LINE
         </span>
 
         <h3 className="relative mt-4 font-display text-[28px] font-extrabold leading-[1.1] sm:text-3xl">
-          Lower fares for your route<br />
+          Affordable airfare —<br />
           <span className="bg-gradient-to-r from-amber-200 via-emerald-200 to-white bg-clip-text text-transparent">
-            may be waiting on the phone.
+            talk to our travel expert.
           </span>
         </h3>
         <p className="relative mt-3 text-sm leading-relaxed text-white/90">
-          Phone-only low fares are not always shown online. Talk to a live specialist now — the
-          quote is <strong>free, personalised</strong>, and takes about a minute.
+          Our experts find affordable phone-only fares that aren't always shown online. The quote
+          is <strong>free, personalised</strong>, and takes about a minute.
         </p>
       </div>
 
@@ -154,7 +154,7 @@ function BestFare({ onClose }: { onClose: () => void }) {
           </span>
           <span className="flex-1 text-white">
             <span className="block text-[10px] font-bold uppercase tracking-widest text-emerald-200">
-              Tap to call · ringing now
+              Tap to call our travel expert
             </span>
             <span className="block text-lg font-extrabold tracking-tight">{SITE.phone}</span>
           </span>

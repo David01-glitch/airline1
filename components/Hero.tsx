@@ -22,17 +22,16 @@ export default function Hero() {
             INDEPENDENT TRAVEL AGENCY · USA
           </span>
           <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-            Find low-fare flight options.
+            Affordable airfare.
             <br />
             <span className="bg-gradient-to-r from-brand-400 to-brand-100 bg-clip-text text-transparent">
-              Book them on a quick call.
+              Talk to a travel expert.
             </span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/75 sm:text-lg">
-            {SITE.name} is an independent travel agency. We help travellers find{' '}
-            <strong className="text-white">low-fare phone-only options</strong> for domestic and
-            international routes — share your trip below and a specialist will call back with the
-            live price.
+            {SITE.name} is an independent travel agency. Our experts help travellers find{' '}
+            <strong className="text-white">affordable phone-only fares</strong> across domestic and
+            international routes — share your trip and call our expert for a live quote.
           </p>
         </div>
         <BookingWidget />
