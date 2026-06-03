@@ -125,6 +125,74 @@ const fmt = (offsetDays: number) => {
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 };
 
+export const REGIONS = [
+  {
+    name: 'North America',
+    blurb: 'USA, Canada, Mexico',
+    img: 'https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    name: 'South America',
+    blurb: 'Brazil, Argentina, Peru, Colombia',
+    img: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    name: 'Europe',
+    blurb: 'UK, France, Italy, Germany, Spain',
+    img: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    name: 'Asia',
+    blurb: 'India, Japan, Thailand, Singapore',
+    img: 'https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    name: 'Africa',
+    blurb: 'Egypt, South Africa, Kenya, Morocco',
+    img: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    name: 'Oceania',
+    blurb: 'Australia, New Zealand, Fiji',
+    img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=70',
+  },
+];
+
+// Popular phone-quote routes shown on homepage. Prices are illustrative samples only.
+export const POPULAR_ROUTES = [
+  { from: 'JFK', fromCity: 'New York', to: 'LHR', toCity: 'London', price: 489 },
+  { from: 'LAX', fromCity: 'Los Angeles', to: 'NRT', toCity: 'Tokyo', price: 612 },
+  { from: 'EWR', fromCity: 'Newark', to: 'DEL', toCity: 'Delhi', price: 745 },
+  { from: 'ORD', fromCity: 'Chicago', to: 'CDG', toCity: 'Paris', price: 542 },
+  { from: 'MIA', fromCity: 'Miami', to: 'GRU', toCity: 'São Paulo', price: 498 },
+  { from: 'SFO', fromCity: 'San Francisco', to: 'SYD', toCity: 'Sydney', price: 879 },
+  { from: 'IAD', fromCity: 'Washington', to: 'DXB', toCity: 'Dubai', price: 695 },
+  { from: 'BOS', fromCity: 'Boston', to: 'FCO', toCity: 'Rome', price: 525 },
+];
+
+export const TIPS = [
+  {
+    title: 'Be flexible with dates',
+    desc: 'Shifting your trip by 1–3 days often unlocks lower fare buckets on the same route.',
+    icon: 'tune',
+  },
+  {
+    title: 'Compare nearby airports',
+    desc: 'JFK vs EWR vs LGA, or LAX vs BUR vs SNA — the same trip can swing 20–30%.',
+    icon: 'pin',
+  },
+  {
+    title: 'Book mid-haul windows',
+    desc: 'International routes typically bottom out 5–8 weeks before departure. Domestic, 3–6 weeks.',
+    icon: 'bolt',
+  },
+  {
+    title: 'Call an expert',
+    desc: 'Phone-only and consolidator fares aren’t always shown online. A 60-second call may surface a better option.',
+    icon: 'headset',
+  },
+];
+
 export const BLOGS = [
   {
     slug: 'best-time-to-book-international-flights',

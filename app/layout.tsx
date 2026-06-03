@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import StickyCallBar from '@/components/StickyCallBar';
+import FloatingCallWidget from '@/components/FloatingCallWidget';
 import { SITE } from '@/lib/site';
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://aerotickethub.com';
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <StickyCallBar />
+        <FloatingCallWidget />
         <CookieBanner />
       </body>
     </html>
