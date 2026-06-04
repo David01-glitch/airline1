@@ -6,28 +6,18 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          950: '#0b1220',
-          900: '#111827',
-          800: '#1f2937',
-          700: '#374151',
+          950: '#070a18',
+          900: '#0b1024',
+          800: '#0f1530',
+          700: '#1a2147',
         },
-        // Primary = warm orange (travel-agency classic)
         brand: {
-          50: '#fff5ec',
-          100: '#ffe6d1',
-          200: '#ffc89a',
-          300: '#ffa56a',
-          400: '#ff8537',
-          500: '#f76d1f',
-          600: '#e85a13',
-          700: '#c0480f',
-          800: '#923810',
-        },
-        // Secondary accent (used for "Call Now" red emphasis)
-        hot: {
-          500: '#ef4444',
-          600: '#dc2626',
-          700: '#b91c1c',
+          50: '#eef0ff',
+          100: '#dde1ff',
+          400: '#7b86ff',
+          500: '#5b67f5',
+          600: '#4f57e6',
+          700: '#3f46c4',
         },
       },
       fontFamily: {
@@ -35,11 +25,11 @@ const config: Config = {
         display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 10px 30px -10px rgba(15, 23, 60, 0.18)',
-        glow: '0 0 0 6px rgba(247, 109, 31, 0.18)',
+        soft: '0 10px 30px -10px rgba(15, 23, 60, 0.25)',
+        glow: '0 0 0 6px rgba(91, 103, 245, 0.15)',
       },
       backgroundImage: {
-        'hero-grad': 'linear-gradient(135deg, #0b1220 0%, #1f2937 60%, #f76d1f 100%)',
+        'hero-grad': 'linear-gradient(135deg, #0b1024 0%, #1a2147 60%, #3f46c4 100%)',
       },
     },
   },
