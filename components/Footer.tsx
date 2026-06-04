@@ -18,7 +18,7 @@ const legalLinks = [
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/cookie-policy', label: 'Cookie Policy' },
   { href: '/disclaimer', label: 'Disclaimer' },
-  { href: '/disclosure', label: 'Disclosure' },
+  { href: '/disclosure', label: 'Affiliate Disclosure' },
   { href: '/payment-policy', label: 'Payment Policy' },
   { href: '/sample-fare-disclosure', label: 'Sample Fare Disclosure' },
   { href: '/accessibility', label: 'Accessibility' },
