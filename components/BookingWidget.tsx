@@ -48,7 +48,7 @@ export default function BookingWidget() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
             One Way
           </span>
-          <span className="text-xs text-slate-500">Request a quote — live prices confirmed by phone</span>
+          <span className="text-xs text-slate-500">Share your trip — our travel desk will get back to you</span>
         </div>
 
         <div className="grid gap-4 md:grid-cols-12">
@@ -125,7 +125,7 @@ export default function BookingWidget() {
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
             <path d="M21 21l-4.3-4.3a8 8 0 1 0-1.4 1.4L19.6 22 21 21zM4 11a7 7 0 1 1 14 0 7 7 0 0 1-14 0z" />
           </svg>
-          Get a Quote
+          Continue
         </button>
 
         <p className="mt-3 text-xs text-slate-500">
@@ -145,7 +145,7 @@ export default function BookingWidget() {
 }
 
 const SITE_DISCLAIMER =
-  'Indicative search only. Live fares and availability are confirmed by a specialist on the phone before booking. AeroTicketHub is an independent travel agency and is not affiliated with any airline. We do not charge a service fee.';
+  'AeroTicketHub is an independent travel agency based in New York. We are not an airline. We do not charge a service fee. Speak with our travel desk to confirm any quote.';
 
 function TravellerPicker({
   adults,

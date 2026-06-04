@@ -27,15 +27,14 @@ export default function FloatingCallWidget() {
           >
             ✕
           </button>
-          <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">
-            ● Travel expert online
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            ● Travel Desk
           </p>
-          <h3 className="mt-2 text-lg font-extrabold text-ink-900">Talk to our expert</h3>
+          <h3 className="mt-2 text-lg font-extrabold text-ink-900">Reach our travel desk</h3>
           <ul className="mt-3 space-y-1.5 text-xs text-slate-600">
-            <li>✓ Affordable phone-only fares</li>
-            <li>✓ Personalised quote in ~60 sec</li>
-            <li>✓ No service fee</li>
-            <li>✓ 24×7 live agents</li>
+            <li>· Independent travel agency</li>
+            <li>· No service fee</li>
+            <li>· 24×7 live agents</li>
           </ul>
           <a
             href={SITE.phoneHref}
@@ -54,10 +53,9 @@ export default function FloatingCallWidget() {
         <button
           onClick={() => setOpen(true)}
           aria-label="open call widget"
-          className="group relative grid h-14 w-14 place-items-center rounded-full bg-brand-600 text-white shadow-soft transition hover:bg-brand-700"
+          className="grid h-12 w-12 place-items-center rounded-full bg-brand-600 text-white shadow-soft transition hover:bg-brand-700"
         >
-          <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/30" />
-          <svg viewBox="0 0 24 24" className="relative h-6 w-6" fill="currentColor">
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
           </svg>
         </button>

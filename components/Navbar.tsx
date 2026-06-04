@@ -41,12 +41,8 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 md:flex">
-          <a href={SITE.phoneHref} className="flex items-center gap-2 text-sm font-medium text-white/85 hover:text-white">
-            <span className="relative grid place-items-center">
-              <span className="absolute h-3 w-3 animate-ping rounded-full bg-emerald-400/70" />
-              <span className="relative h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]" />
-            </span>
-            Live Support
+          <a href={SITE.phoneHref} className="text-sm font-medium text-white/85 hover:text-white">
+            Travel Desk
           </a>
           <CallButton />
         </div>
@@ -73,12 +69,8 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <a href={SITE.phoneHref} className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-white/90 hover:bg-white/5">
-              <span className="relative grid place-items-center">
-                <span className="absolute h-3 w-3 animate-ping rounded-full bg-emerald-400/70" />
-                <span className="relative h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]" />
-              </span>
-              Live Support
+            <a href={SITE.phoneHref} className="rounded-xl px-3 py-2.5 text-white/90 hover:bg-white/5">
+              Travel Desk
             </a>
             <div className="pt-2">
               <CallButton />

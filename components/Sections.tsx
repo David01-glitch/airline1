@@ -81,9 +81,8 @@ export function Destinations() {
             Where travellers are heading
           </h2>
           <p className="mt-2 max-w-xl text-sm text-slate-500">
-            All prices shown are <strong>illustrative sample fares</strong> based on past booking data
-            for reference only. Live availability and final pricing are confirmed by our travel
-            specialists over the phone.
+            A few of the destinations we help travellers plan trips to. Speak with our travel desk
+            for personalised options.
           </p>
         </div>
         <Link href="/destination" className="hidden text-sm font-semibold text-brand-600 hover:text-brand-700 sm:inline-flex">
@@ -106,14 +105,8 @@ export function Destinations() {
             <div className="absolute inset-x-0 bottom-0 p-6 text-white">
               <p className="text-xs uppercase tracking-widest text-white/70">{d.country}</p>
               <h3 className="mt-1 font-display text-3xl font-extrabold">{d.city}</h3>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs text-white/70">Sample fare from</span>
-                <span className="rounded-full bg-white/15 px-3 py-1 text-sm font-bold backdrop-blur">
-                  ${d.price}*
-                </span>
-              </div>
-              <p className="mt-2 text-[10px] uppercase tracking-widest text-white/55">
-                *Illustrative · call for live price
+              <p className="mt-2 text-xs text-white/70">
+                Speak with our travel desk to plan your trip.
               </p>
             </div>
           </article>

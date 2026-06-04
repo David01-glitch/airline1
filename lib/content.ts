@@ -1,7 +1,7 @@
 export const FEATURES = [
   {
-    title: 'Affordable Airfare Experts',
-    desc: 'Our travel experts check affordable phone fares across many carriers and walk you through every detail before booking.',
+    title: 'Real Travel Experts',
+    desc: 'Our team is made up of experienced travel professionals who help with everything from initial planning to post-booking support.',
     icon: 'headset',
   },
   {
@@ -187,8 +187,8 @@ export const TIPS = [
     icon: 'bolt',
   },
   {
-    title: 'Call an expert',
-    desc: 'Phone-only and consolidator fares aren’t always shown online. A 60-second call may surface a better option.',
+    title: 'Plan ahead, but stay open',
+    desc: 'Booking 5–8 weeks out for international trips usually gives the widest set of options to choose from.',
     icon: 'headset',
   },
 ];

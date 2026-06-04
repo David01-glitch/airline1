@@ -100,7 +100,7 @@ export function PopularRoutes() {
   );
 }
 
-// ───── How to Find Affordable Airfare ─────
+// ───── Travel Tips (general advice) ─────
 export function AffordableTips() {
   return (
     <section className="section py-20">
@@ -108,11 +108,10 @@ export function AffordableTips() {
         <div className="mx-auto max-w-2xl text-center">
           <span className="chip">● Travel Tips</span>
           <h2 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
-            How to find affordable airfare
+            A few travel-planning tips
           </h2>
           <p className="mt-3 text-slate-600">
-            A few practical habits travellers use to keep flight costs in check — and where a
-            travel expert can add real value.
+            General guidance our travel team shares with first-time international travellers.
           </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">

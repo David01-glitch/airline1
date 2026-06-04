@@ -3,7 +3,6 @@ import { About, CallCTA, Destinations, Features, Testimonials, ValueProps } from
 import {
   AffordableTips,
   Newsletter,
-  PopularRoutes,
   TravelByRegion,
   TrustBadges,
 } from '@/components/MoreSections';
@@ -14,7 +13,6 @@ export default function HomePage() {
       <Hero />
       <TrustBadges />
       <Features />
-      <PopularRoutes />
       <About />
       <TravelByRegion />
       <Destinations />
