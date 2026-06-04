@@ -8,39 +8,45 @@ export default function Hero() {
         className="absolute inset-0 -z-10"
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2200&q=70)',
+            'url(https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=2400&q=70)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
         role="img"
-        aria-label="Aircraft wing above the clouds"
+        aria-label="Aircraft on an airport apron at sunset"
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink-950/85 via-ink-950/70 to-ink-950/95" />
-      <div className="section pb-12 pt-16 text-white sm:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-white/80 backdrop-blur">
-            INDEPENDENT TRAVEL AGENCY · NEW YORK
-          </span>
-          <h1 className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-            Plan your next trip.
-            <br />
-            <span className="bg-gradient-to-r from-brand-400 to-brand-100 bg-clip-text text-transparent">
-              We'll help with the details.
-            </span>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950/95" />
+
+      <div className="section pb-10 pt-16 sm:pt-20">
+        <div className="max-w-2xl text-white">
+          <h1 className="font-display text-4xl font-extrabold leading-tight tracking-tight drop-shadow sm:text-5xl lg:text-6xl">
+            Major Carrier Flight Bookings
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-white/75 sm:text-lg">
-            {SITE.name} is an independent travel agency based in New York. Share your route below
-            and a travel specialist will get back to you with available options.
+          <p className="mt-3 max-w-xl text-base font-medium text-white/90 sm:text-lg">
+            Call our travel desk — toll-free, no hold time. Instantly connect with a live travel
+            specialist who books across major US and international carriers.
           </p>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <a
+              href={SITE.phoneHref}
+              className="inline-flex items-center gap-2 rounded-2xl bg-brand-600 px-6 py-3 text-base font-bold text-white shadow-soft transition hover:bg-brand-700"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
+              </svg>
+              Call Toll-Free {SITE.phone}
+            </a>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wider text-white/85 backdrop-blur">
+              ● INDEPENDENT TRAVEL AGENCY · NEW YORK
+            </span>
+          </div>
         </div>
-        <BookingWidget />
-        <p className="mt-6 text-center text-xs text-white/55">
-          Questions? Call our travel desk at{' '}
-          <a href={SITE.phoneHref} className="font-semibold text-white underline-offset-4 hover:underline">
-            {SITE.phone}
-          </a>
-          .
-        </p>
+
+        {/* Search widget pulled into hero */}
+        <div className="mt-10">
+          <BookingWidget />
+        </div>
       </div>
     </section>
   );
