@@ -125,7 +125,7 @@ export default function BookingWidget() {
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
             <path d="M21 21l-4.3-4.3a8 8 0 1 0-1.4 1.4L19.6 22 21 21zM4 11a7 7 0 1 1 14 0 7 7 0 0 1-14 0z" />
           </svg>
-          Continue
+          Get a Quote
         </button>
 
         <p className="mt-3 text-xs text-slate-500">
